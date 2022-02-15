@@ -21,18 +21,18 @@ userInput.addEventListener("click", function () {
     console.log(userGenreValue);
 
     const userDecadeInput = document.getElementById("user-input-two");
+    console.log(userDecadeInput);
     const userDecadeValue = userDecadeInput.value;
     console.log(userDecadeValue);
     
     // create method to retrive data from API //
-    
     // movieMood.retriveMovies = () => {
         
         // construct URL endpoint and specifcy the paremeters we want to include  //
         const url = new URL(movieMood.apiURL);
         url.search = new URLSearchParams({
             api_key: movieMood.apiKey,
-            year: 1980,
+            year: userDecadeInput,
             with_genres: userGenreValue
         });
         console.log(url);
