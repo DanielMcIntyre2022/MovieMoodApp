@@ -5,16 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles/styles.css">
     <title>Movie Mood</title>
 </head>
 
 <body>
+
     <main>
         <h1>Movie Mood</h1>
 
         <form name="user-inputs" id="user-inputs">
+
             <h2>What are you in the mood for?</h2>
+            <label for="user-input-one">Choose a movie genre</label>
             <select name="user-input-one" id="user-input-one">
                 <option value="" selected="selected">Choose a genre!</option>
                 <option value="28">Action</option>
@@ -40,17 +43,9 @@
 
             <h2>What era works for you?</h2>
             <div class="eraRange">
+                <label for="user-input-two">Older - Newer</label>
                 <input type="range" min="1920" max="2021" value="1970" class="slider" id="user-input-two">
             </div>
-
-            <!-- <select name="user-input-two" id="user-input-two">
-                <option value="1" selected="selected">Choose an era!</option>
-                <option value="2">1950-1960</option>
-                <option value="3">1960-1970</option>
-                <option value="4">1980-1990</option>
-                <option value="5">2000-2010</option>
-                <option value="6">2010-2020</option>
-            </select> -->
         </form>
 
         <button>Fetch Me My Movies!</button>
@@ -59,6 +54,31 @@
             <ul id="movie-display-ul"></ul>
         </div>
     </main>
+
+    <style>
+        ul {
+            border: 5px solid black;
+        }
+
+        li {
+            width: 200px;
+            height: 200px;
+            color: black;
+        }
+
+        p {
+            font-size: 10px;
+            color: black;
+        }
+
+        img {
+            border: 5px solid yellow;
+            width: 200px;
+            height: 200px;
+            color: yellow;
+            margin-left: 300px;
+        }
+    </style>
 </body>
 <script src="javascript/scripts.js"></script>
 
