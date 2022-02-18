@@ -27,7 +27,6 @@ movieMood.eventListenerSetup = function () {
     });
 
 
-
     // Create method to retrive data from API //
     movieMood.getMovie = function (userDecadeValue, userGenreValue) {
 
@@ -52,78 +51,67 @@ movieMood.eventListenerSetup = function () {
             //parse the JSON Promise response and log out readable data (AKA data in JSON format)
             .then(function (jsonResponse) {
                 console.log(jsonResponse);
-                // movieMood.displayMovies(jsonResponse.results);
-                movieMood.displayMovies();
+
+                movieMood.displayMovies(jsonResponse);
             });
     }
 }
 
-
-
-
-
 // Create method to display to display API data //
-movieMood.displayMovies = function (userDecadeValue, userGenreValue) {
+movieMood.displayMovies = function (moviesObject) {
     // clear the old selections //
     const ulElement = document.querySelector('#movie-display-ul');
 
-    console.log(ulElement);
+    // clear userinput from previous selection //
+
+    const moviesList = moviesObject.results;
+
+    ulElement.innerHTML = '';
+
+    // create a forEach array //
+
+    moviesList.forEach(function (individualMovieObject) {
+
+        // extract the data from API (movieId, movieTitle, moivePoster, movieSynopsis) //
+
+        const movieId = individualMovieObject.id;
+        const movieTitle = individualMovieObject.title;
+        const moviePoster = individualMovieObject.poster_path;
+        const movieSynopsis = individualMovieObject.overview;
+
+        console.log(movieId, movieTitle, moviePoster, movieSynopsis)
 
 
+        // create li element for movies to be appended onto page
+        const liElement = document.createElement('li');
 
+        liElement.classList.add('movie');
 
-    
+        // // create h2 element for movie title to be appended
+        const heading = document.createElement('h2');
 
+        heading.textContent = movieTitle;
 
-    // ******** START HERE Thursday: do put stuff on screen using userDecadeValue, userGenreValue to test
-    //  ************ Then work on pulling data out of API fetch and pulling into display function --> to screen
+        // // create img element for movie poster to be apended onto page 
+        const image = document.createElement('img');
 
+        image.src = moviePoster;
 
+        // // create p element for movie synopsis to be appended onto page
+        const paragraph = document.createElement('p');
+        console.log(paragraph);
 
+        // paragraph.classList.add("synopsis");
+        paragraph.textContent = movieSynopsis;
 
+        liElement.append(heading, paragraph);
 
+        // add the Li to the ul //
 
+        ulElement.appendChild(liElement);
 
-
-    // ulElement.innerHTML = '';
-    // movieArray.forEach(function (individualMovieObject) {
-
-    //     // extract the data from API (movieId, movieTitle, moivePoster, movieSynopsis)
-
-    //     const movieId = individualMovieObject.id;
-    //     const movieTitle = individualMovieObject.title;
-    //     const moviePoster = individualMovieObject.poster_path;
-    //     const movieSynopsis = individualMovieObject.overview;
-
-    //     console.log(movieId, movieTitle, moviePoster, movieSynopsis)
-
-    // });
+    });
 }
-
-
-
-// create a forEach array 
-
-
-// create li element for movies to be appended onto page
-
-// const liElement = document.createElement('li');
-
-// liElement.classList.add('movie');
-
-// // create h2 element for movie title to be appended
-
-// const heading = document.createElement('h2');
-
-// // create img element for movie poster to be apended onto page 
-
-// const image = document.createElement('img');
-
-// // create p element for movie synopsis to be appended onto page
-
-// const pargraph = document.createElement('p');
-
-
 
 
 // Create app intialization method //
