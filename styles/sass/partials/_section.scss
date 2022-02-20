@@ -1,0 +1,63 @@
+
+.wrapper {
+    width: 90%;
+    max-width: 1260px;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+}
+
+.movie-display-ul {
+    display: flex;
+}
+
+body {
+    background-color: black;
+}
+
+h1 {
+    font-family: 'Righteous', cursive;
+    font-size: 50px;
+    color: red;
+}
+
+h2 {
+    color: white;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.user-choice h2 {
+     margin-left: -20%;
+}
+
+ul {
+    list-style: none;
+    color: white;
+}
+
+li {
+    border: 5px solid white;
+    width: calc(100%/3);
+    padding: 25px;
+}
+
+li p {
+    text-align: left;
+}
+
+label {
+    color: white;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.get-genre, .eraRange {
+    width: 250px;
+}
+
+.user-choice {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-left: 3%;
+    
+}
